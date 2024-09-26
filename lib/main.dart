@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:getx_mvvm/resource/getx_localization/languages.dart';
+import 'package:getx_mvvm/resource/route/routes.dart';
 import 'package:getx_mvvm/view/splash_screen.dart';
 
 void main() {
@@ -11,14 +14,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+
+      // For Bangla Language
+      translations: Languages(),
+      locale: const Locale("en","US"),
+      fallbackLocale: const Locale("en","Us"),
+
+      // For Get path 
+      getPages: AppRoute.appRoute(),
+
     );
   }
 }
