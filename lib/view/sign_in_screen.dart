@@ -4,6 +4,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:getx_mvvm/resource/colors/app_colors.dart';
 import 'package:getx_mvvm/resource/component/internet_exceptions_widgets.dart';
 import 'package:getx_mvvm/resource/component/round_button.dart';
+import 'package:getx_mvvm/resource/route/route_name.dart';
 
 import '../resource/component/customizedTextWidget.dart';
 import '../resource/component/general_exceptions.dart';
@@ -55,7 +56,9 @@ class SignInScreen extends StatelessWidget {
             ),
             RoundButton(
               title: "Login",
-              onPress: () {},
+              onPress: () {
+                Get.toNamed(RouteName.signInView);
+              },
               width: 290,
               buttonColor: Colors.green,
               textColor: Colors.white,

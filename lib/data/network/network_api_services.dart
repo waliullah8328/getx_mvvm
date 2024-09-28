@@ -7,6 +7,8 @@ import 'package:getx_mvvm/data/app_exceptions.dart';
 import 'package:getx_mvvm/data/network/base_api_services.dart';
 import 'package:http/http.dart' as http;
 
+import '../../resource/app_url/app_url.dart';
+
 class NetworkApiServices extends BaseApiServices{
 
   @override
@@ -26,6 +28,11 @@ class NetworkApiServices extends BaseApiServices{
       throw RequestTimeOutExceptions("");
 
     }
+    if(kDebugMode){
+      print(responseJson);
+
+    }
+
     return responseJson;
   }
 
@@ -36,8 +43,13 @@ class NetworkApiServices extends BaseApiServices{
       print(data);
     }
     dynamic responseJson;
+    var _headers={
+      "Content-Type": "application/json",
+      'x-API-Key': "${AppUrl.apiKey}"
+
+    };
     try{
-      final response = await http.post(Uri.parse(url),body: jsonEncode(data)).timeout(const Duration(seconds: 10));
+      final response = await http.post(Uri.parse(url),body: jsonEncode(data),headers: _headers).timeout(const Duration(seconds: 10));
       responseJson= returnResponse(response);
 
     }on SocketException{
