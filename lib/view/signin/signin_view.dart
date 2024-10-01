@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:getx_mvvm/resource/component/round_button.dart';
 import 'package:getx_mvvm/utils/utils.dart';
-import 'package:getx_mvvm/view_model/controller/login_view_model.dart';
+import 'package:getx_mvvm/view_model/controller/login/login_controller.dart';
 
 class SignInView extends StatelessWidget {
   const SignInView({super.key});
